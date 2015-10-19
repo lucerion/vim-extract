@@ -22,6 +22,6 @@ if !exists('g:extract_append')
   let g:extract_append = 1
 endif
 
-comm! -nargs=0 -range=0 Extract call extract#extract(<line1>, <line2>)
+comm! -nargs=0 -range=0 VExtract call extract#extract(<line1>, <line2>)
 
 let g:loaded_extract = 1
