@@ -16,26 +16,33 @@ License                                                   |vim-extract-license|
 ===============================================================================
 INSTALL                                                   *vim-extract-install*
 
+vim-extract dependending on vim-buffr plugin
+
 Vundle                                https://github.com/VundleVim/Vundle.vim
 >
     Plugin 'lucerion/vim-extract'
+    Plugin 'lucerion/vim-buffr'
 <
 Pathogen                                https://github.com/tpope/vim-pathogen
 >
     cd ~/.vim/bundle
     git clone https://github.com/lucerion/vim-extract
+    git clone https://github.com/lucerion/vim-buffr
 <
 NeoBundle                             https://github.com/Shougo/neobundle.vim
 >
     NeoBundle 'lucerion/vim-extract'
+    NeoBundle 'lucerion/vim-buffr'
 <
 vim-plug                                 https://github.com/junegunn/vim-plug
 >
     Plug 'lucerion/vim-extract'
+    Plug 'lucerion/vim-buffr'
 <
 Manual
 >
     git clone https://github.com/lucerion/vim-extract
+    git clone https://github.com/lucerion/vim-buffr
 <
     copy all of the files into your ~/.vim directory
 
