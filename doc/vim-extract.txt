@@ -18,23 +18,23 @@ INSTALL                                                   *vim-extract-install*
 
 vim-extract dependending on vim-buffr plugin
 
-Vundle                                https://github.com/VundleVim/Vundle.vim
+Vundle                                  https://github.com/VundleVim/Vundle.vim
 >
     Plugin 'lucerion/vim-extract'
     Plugin 'lucerion/vim-buffr'
 <
-Pathogen                                https://github.com/tpope/vim-pathogen
+Pathogen                                  https://github.com/tpope/vim-pathogen
 >
     cd ~/.vim/bundle
     git clone https://github.com/lucerion/vim-extract
     git clone https://github.com/lucerion/vim-buffr
 <
-NeoBundle                             https://github.com/Shougo/neobundle.vim
+NeoBundle                               https://github.com/Shougo/neobundle.vim
 >
     NeoBundle 'lucerion/vim-extract'
     NeoBundle 'lucerion/vim-buffr'
 <
-vim-plug                                 https://github.com/junegunn/vim-plug
+vim-plug                                   https://github.com/junegunn/vim-plug
 >
     Plug 'lucerion/vim-extract'
     Plug 'lucerion/vim-buffr'
@@ -50,25 +50,29 @@ Manual
 COMMANDS                                                 *vim-extract-commands*
 
                                                                     *:VExtract*
-:VExtract                 In visual mode - extract selection to a new buffer,
-                          in normal mode - open extract buffer
+:VExtract                   In visual mode - extract selection to a new buffer,
+                            in normal mode - open extract buffer
 
 ===============================================================================
 OPTIONS                                                   *vim-extract-options*
 
                                                                *g:extract_name*
 
-Name of a extract buffer. {filename} pattern will be replaced with current
-file name
+Name of a extract buffer. {filename} pattern will be replaced with current file
+name
+
 Default: '_{filename}'
 
                                                            *g:extract_position*
 
 Buffer position. Possible values: 'top', 'bottom', 'left', 'right', 'tab'
+
 Default: 'top'
 
                                                              *g:extract_append*
+
 Append selection to a extract buffer, otherwise clear buffer before extracting
+
 Default: 1
 
 ===============================================================================
