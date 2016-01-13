@@ -85,7 +85,7 @@ CHANGELOG                                               *vim-extract-changelog*
 ===============================================================================
 LICENSE                                                   *vim-extract-license*
 
-Copyright (c) 2015 Alexander Skachko
+Copyright (c) 2015-2016 Alexander Skachko
 
 MIT License
 
