@@ -31,7 +31,7 @@ endfunc
 
 func! s:open_buffer()
   let l:buffer_name = substitute(g:extract_name, '{filename}', expand('%:t'), 'g')
-  call buffr#open(l:buffer_name, g:extract_position)
+  call buffr#open_or_create_buffer(l:buffer_name, g:extract_position)
   call s:set_buffer_defaults()
 endfunc
 
