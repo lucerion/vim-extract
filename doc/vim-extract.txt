@@ -51,28 +51,30 @@ Manual
 COMMANDS                                                 *vim-extract-commands*
 
                                                                     *:VExtract*
-:VExtract                   In visual mode - extract selection to a new buffer,
-                            in normal mode - open extract buffer
+:VExtract                   In Visual mode - extract selection to a buffer,
+                            in Normal mode - open the extract buffer.
 
 ===============================================================================
 OPTIONS                                                   *vim-extract-options*
 
                                                                *g:extract_name*
 
-Name of a extract buffer. {filename} pattern will be replaced with current file
-name
+The name of the extract buffer. {filename} pattern will be replaced with
+the current file name.
 
 Default: '_{filename}'
 
                                                            *g:extract_position*
 
-Buffer position. Possible values: 'top', 'bottom', 'left', 'right', 'tab'
+The extract buffer position.
 
+Possible values: 'top', 'bottom', 'left', 'right', 'tab'
 Default: 'top'
 
                                                              *g:extract_append*
 
-Append selection to a extract buffer, otherwise clear buffer before extracting
+Append selected text to the end of the extract buffer or clear the extract
+buffer before insert.
 
 Default: 1
 
