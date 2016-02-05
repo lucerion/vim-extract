@@ -2,7 +2,7 @@
 
 Author:      Alexander Skachko <alexander.skachko@gmail.com>
 Homepage:    https://github.com/lucerion/vim-extract
-Version:     0.1
+Version:     0.2
 Licence:     MIT
 
 ===============================================================================
@@ -81,6 +81,10 @@ Default: 1
 ===============================================================================
 CHANGELOG                                               *vim-extract-changelog*
 
+0.2.0
+  Fixes
+    Change buffr#open to buffr#open_or_create
+    Rename Extract to VExtract command (vim-rails plugin conflict)
 0.1.0 (2015-12-06)
   First release
 
