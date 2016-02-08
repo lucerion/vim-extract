@@ -81,11 +81,11 @@ Default: 1
 ===============================================================================
 CHANGELOG                                               *vim-extract-changelog*
 
-0.2.0
+0.2.0 (2016-02-05)~
   Fixes
     Change buffr#open to buffr#open_or_create
     Rename Extract to VExtract command (vim-rails plugin conflict)
-0.1.0 (2015-12-06)
+0.1.0 (2015-12-06)~
   First release
 
 ===============================================================================
