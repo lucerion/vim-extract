@@ -2,8 +2,8 @@
 
 Author:      Alexander Skachko <alexander.skachko@gmail.com>
 Homepage:    https://github.com/lucerion/vim-extract
-Version:     0.2
-Licence:     MIT
+Version:     0.3
+Licence:     MIT (see LICENSE)
 
 ===============================================================================
 CONTENTS                                                          *vim-extract*
@@ -17,25 +17,26 @@ License                                                   |vim-extract-license|
 ===============================================================================
 INSTALL                                                   *vim-extract-install*
 
-vim-extract dependending on vim-buffr plugin
+This plugin depends on vim-buffr (https://github.com/lucerion/vim-buffr)
+plugin
 
-Vundle                                  https://github.com/VundleVim/Vundle.vim
+Vundle                                https://github.com/VundleVim/Vundle.vim
 >
     Plugin 'lucerion/vim-extract'
     Plugin 'lucerion/vim-buffr'
 <
-Pathogen                                  https://github.com/tpope/vim-pathogen
+Pathogen                                https://github.com/tpope/vim-pathogen
 >
     cd ~/.vim/bundle
     git clone https://github.com/lucerion/vim-extract
     git clone https://github.com/lucerion/vim-buffr
 <
-NeoBundle                               https://github.com/Shougo/neobundle.vim
+NeoBundle                             https://github.com/Shougo/neobundle.vim
 >
     NeoBundle 'lucerion/vim-extract'
     NeoBundle 'lucerion/vim-buffr'
 <
-vim-plug                                   https://github.com/junegunn/vim-plug
+vim-plug                                 https://github.com/junegunn/vim-plug
 >
     Plug 'lucerion/vim-extract'
     Plug 'lucerion/vim-buffr'
@@ -50,41 +51,53 @@ Manual
 ===============================================================================
 COMMANDS                                                 *vim-extract-commands*
 
-                                                                    *:VExtract*
-:VExtract                   In Visual mode - extract selection to a buffer,
-                            in Normal mode - open the extract buffer.
+                                                                        *:Extr*
+:[range]Extr {name} {position} or :[range]Extr {position} {name}
+
+  In Visual mode - extract selection to a buffer, in Normal mode - open
+  the extract buffer. Buffer will be opened with {name} at {position}
+  'name' and 'position' arguments are optional
+  Without 'position' argument buffer will open with last opened position or
+  will be opened with default position
+  Possible {position} values: -top, -bottom, -left, -right, -tab
+  Default {position} value: -top
 
 ===============================================================================
 OPTIONS                                                   *vim-extract-options*
 
                                                                *g:extract_name*
 
-The name of the extract buffer. {filename} pattern will be replaced with
-the current file name.
+Pattern of the extract buffer name. {filename} will be replaced with current
+file name. Will be used if :Extr command was called without 'name' argument
 
 Default: '_{filename}'
 
-                                                           *g:extract_position*
-
-The extract buffer position.
-
-Possible values: 'top', 'bottom', 'left', 'right', 'tab'
-Default: 'top'
-
                                                              *g:extract_append*
 
-Append selected text to the end of the extract buffer or clear the extract
-buffer before insert.
+Append selected text to the end of the extract buffer (1) or clear the extract
+buffer and insert selection (0)
 
 Default: 1
 
 ===============================================================================
 CHANGELOG                                               *vim-extract-changelog*
 
+0.3.0 (2016-03-27)~
+  vim-buffr plugin version 0.3 required
+
+  Features
+    * position and buffer name arguments were added to command
+    * allow range
+  Fixes
+    * buffr#open_or_create arguments were changed to dictionary
+    * command VExtract was renamed to Extr
+    * g:extract_position option was removed
+
 0.2.0 (2016-02-05)~
   Fixes
-    Change buffr#open to buffr#open_or_create
-    Rename Extract to VExtract command (vim-rails plugin conflict)
+    * buffr#open to buffr#open_or_create was changed
+    * command Extract was renamed to VExtract (vim-rails plugin conflict)
+
 0.1.0 (2015-12-06)~
   First release
 

@@ -2,37 +2,45 @@
 " Description:  Extract selection to a new buffer
 " Author:       Alexander Skachko <alexander.skachko@gmail.com>
 " Homepage:     https://github.com/lucerion/vim-extract
-" Version:      0.2
+" Version:      0.3
 " Licence:      MIT
 " ==============================================================
 
-func! extract#extract(start_line, end_line)
+func! extract#extract(start_line, end_line, count, buffer_options)
+  let s:buffer_options = a:buffer_options
+
   if exists('g:loaded_buffr')
-    call s:extract(a:start_line, a:end_line)
+    call s:extract(a:start_line, a:end_line, a:count)
   else
     call s:show_error('Please, install vim-buffr')
     return
   endif
 endfunc
 
-func! s:extract(start_line, end_line)
+func! s:extract(start_line, end_line, count)
   let l:selection = getline(a:start_line, a:end_line)
-  let l:in_visual_mode = s:in_visual_mode()
 
-  if l:in_visual_mode && len(l:selection)
+  if a:count
     call s:delete_lines(a:start_line, a:end_line)
   endif
   call s:open_buffer()
-  if l:in_visual_mode && len(l:selection)
+  if a:count
     call s:clear_buffer()
     call s:insert_selection(l:selection)
   endif
 endfunc
 
 func! s:open_buffer()
-  let l:buffer_name = substitute(g:extract_name, '{filename}', expand('%:t'), 'g')
-  call buffr#open_or_create_buffer(l:buffer_name, g:extract_position)
+  call buffr#open_or_create_buffer(s:buffer_options())
   call s:set_buffer_defaults()
+endfunc
+
+func! s:buffer_options()
+  let l:default_buffer_options = {
+  \  'name': substitute(g:extract_name, '{filename}', expand('%:t'), 'g'),
+  \ }
+
+  return extend(l:default_buffer_options, s:buffer_options)
 endfunc
 
 func! s:clear_buffer()
@@ -61,10 +69,6 @@ func! s:set_buffer_defaults()
   setlocal bufhidden=hide
   setlocal nobuflisted
   setlocal noswapfile
-endfunc
-
-func! s:in_visual_mode()
-  return visualmode(1) =~? '.*v'
 endfunc
 
 func! s:show_error(message)
