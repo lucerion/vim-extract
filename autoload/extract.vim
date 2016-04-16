@@ -3,7 +3,7 @@
 " Author:       Alexander Skachko <alexander.skachko@gmail.com>
 " Homepage:     https://github.com/lucerion/vim-extract
 " Version:      0.3
-" Licence:      MIT
+" Licence:      BSD-3-Clause
 " ==============================================================
 
 func! extract#extract(start_line, end_line, count, buffer_options)
