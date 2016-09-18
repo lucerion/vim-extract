@@ -2,7 +2,7 @@
 " Description:  Extract selection to a new buffer
 " Author:       Alexander Skachko <alexander.skachko@gmail.com>
 " Homepage:     https://github.com/lucerion/vim-extract
-" Version:      0.3
+" Version:      0.4
 " Licence:      BSD-3-Clause
 " ==============================================================
 
@@ -27,12 +27,19 @@ func! s:extract(start_line, end_line, count)
   if a:count
     call s:clear_buffer()
     call s:insert_selection(l:selection)
+    if g:extract_hidden
+      call s:close_buffer()
+    endif
   endif
 endfunc
 
 func! s:open_buffer()
   call buffr#open_or_create_buffer(s:buffer_options())
   call s:set_buffer_defaults()
+endfunc
+
+func! s:close_buffer()
+  silent exec 'close'
 endfunc
 
 func! s:buffer_options()

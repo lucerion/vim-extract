@@ -2,7 +2,7 @@
 
 Author:      Alexander Skachko <alexander.skachko@gmail.com>
 Homepage:    https://github.com/lucerion/vim-extract
-Version:     0.3
+Version:     0.4
 Licence:     BSD-3-Clause (see LICENSE)
 
 ===============================================================================
@@ -52,36 +52,46 @@ Manual
 COMMANDS                                                 *vim-extract-commands*
 
                                                                         *:Extr*
-:[range]Extr {name} {position} or :[range]Extr {position} {name}
+:[range]Extr {buffer-name} {position} or :[range]Extr {position} {buffer-name}
 
-  In Visual mode - extract selection to a buffer, in Normal mode - open
-  the extract buffer. Buffer will be opened with {name} at {position}.
-  'name' and 'position' arguments are optional.
-  Without 'position' argument buffer will be opened with last or Default
-  position
-  Possible {position} values: -top, -bottom, -left, -right, -tab
-  Default {position} value: -top
+  In Visual mode - extract selection to a new buffer, in Normal mode - open
+  the extract buffer.
+  Without 'position' argument the extract buffer will be opened with the last
+  or default position.
+
+  Positions: -top, -bottom, -left, -right, -tab
+  Default position: -top
 
 ===============================================================================
 OPTIONS                                                   *vim-extract-options*
 
                                                                *g:extract_name*
 
-Pattern for the extract buffer name. {filename} will be replaced with current
-file name. This buffer name will be used if :Extr command was called without
-'name' argument.
+Pattern for the extract buffer name. {filename} will be replaced with the
+current file name. This option will be used if :Extr command was called
+without 'name' argument.
 
 Default: '_{filename}'
 
                                                              *g:extract_append*
 
-Append selected text to the end of the extract buffer (1) or clear the extract
-buffer and insert selection (0)
+Append selection to the end of the extract buffer (1) or clear the extract
+buffer before insertation (0).
 
 Default: 1
 
+                                                             *g:extract_hidden*
+
+Extract selection without opening the extract buffer.
+
+Default: 0
+
 ===============================================================================
 CHANGELOG                                               *vim-extract-changelog*
+
+0.4.0 (2016-09-19)~
+  Changes
+    * extract selection without opening the extract buffer option was added
 
 0.3.0 (2016-03-27)~
   vim-buffr plugin version 0.3 required

@@ -2,7 +2,7 @@
 " Description:  Extract selection to a new buffer
 " Author:       Alexander Skachko <alexander.skachko@gmail.com>
 " Homepage:     https://github.com/lucerion/vim-extract
-" Version:      0.3
+" Version:      0.4
 " Licence:      BSD-3-Clause
 " ==============================================================
 
@@ -16,6 +16,10 @@ endif
 
 if !exists('g:extract_append')
   let g:extract_append = 1
+endif
+
+if !exists('g:extract_hidden')
+  let g:extract_hidden = 0
 endif
 
 let s:allowed_args = ['-top', '-bottom', '-left', '-right', '-tab']
