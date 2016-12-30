@@ -1,9 +1,9 @@
 *vim-extract.txt*    Extract selection to a new buffer
 
-Author:      Alexander Skachko <alexander.skachko@gmail.com>
-Homepage:    https://github.com/lucerion/vim-extract
-Version:     0.4
-Licence:     BSD-3-Clause (see LICENSE)
+Author:            Alexander Skachko <alexander.skachko@gmail.com>
+Homepage:          https://github.com/lucerion/vim-extract
+Version:           0.4.0 (2016-09-19)
+Licence:           BSD-3-Clause (see LICENSE)
 
 ===============================================================================
 CONTENTS                                                          *vim-extract*
@@ -52,6 +52,7 @@ Manual
 COMMANDS                                                 *vim-extract-commands*
 
                                                                         *:Extr*
+
 :[range]Extr {buffer-name} {position} or :[range]Extr {position} {buffer-name}
 
   In Visual mode - extract selection to a new buffer, in Normal mode - open
