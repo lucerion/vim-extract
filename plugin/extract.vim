@@ -10,8 +10,8 @@ if exists('g:loaded_extract') || &compatible || (v:version < 700)
   finish
 endif
 
-if !exists('g:extract_name')
-  let g:extract_name = '_{filename}'
+if !exists('g:extract_buffer_name')
+  let g:extract_buffer_name = '_{filename}'
 endif
 
 if !exists('g:extract_append')

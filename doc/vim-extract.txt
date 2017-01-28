@@ -66,9 +66,9 @@ COMMANDS                                                 *vim-extract-commands*
 ===============================================================================
 OPTIONS                                                   *vim-extract-options*
 
-                                                               *g:extract_name*
+                                                        *g:extract_buffer_name*
 
-Pattern for the extract buffer name. {filename} will be replaced with the
+Extract buffer name pattern. {filename} will be replaced with the
 current file name. This option will be used if :Extr command was called
 without 'name' argument.
 

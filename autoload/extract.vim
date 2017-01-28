@@ -44,7 +44,7 @@ endfunc
 
 func! s:buffer_options()
   let l:default_buffer_options = {
-  \  'name': substitute(g:extract_name, '{filename}', expand('%:t'), 'g'),
+  \  'name': substitute(g:extract_buffer_name, '{filename}', expand('%:t'), 'g')
   \ }
 
   return extend(l:default_buffer_options, s:buffer_options)
