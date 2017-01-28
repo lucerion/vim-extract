@@ -6,26 +6,26 @@
 " Licence:      BSD-3-Clause
 " ==============================================================
 
-func! extract#extract(start_line, end_line, count, buffer_options)
-  let s:buffer_options = a:buffer_options
-
+func! extract#extract(selection, buffer_options)
   if exists('g:loaded_buffr')
-    call s:extract(a:start_line, a:end_line, a:count)
+    call s:extract(a:selection, a:buffer_options)
   else
     call s:show_error('Please, install vim-buffr')
     return
   endif
 endfunc
 
-func! s:extract(start_line, end_line, count)
-  let l:selection = getline(a:start_line, a:end_line)
+func! s:extract(selection, buffer_options)
+  let l:selection = getline(a:selection.start_line, a:selection.end_line)
 
-  if a:count
-    call s:delete_lines(a:start_line, a:end_line)
+  if a:selection.count
+    call s:delete_lines(a:selection.start_line, a:selection.end_line)
   endif
-  call s:open_buffer()
-  if a:count
-    call s:clear_buffer()
+  call s:open_buffer(a:buffer_options)
+  if a:selection.count
+    if a:buffer_options.clear
+      call s:clear_buffer()
+    end
     call s:insert_selection(l:selection)
     if g:extract_hidden
       call s:close_buffer()
@@ -33,8 +33,8 @@ func! s:extract(start_line, end_line, count)
   endif
 endfunc
 
-func! s:open_buffer()
-  call buffr#open_or_create_buffer(s:buffer_options())
+func! s:open_buffer(buffer_options)
+  call buffr#open_or_create_buffer(s:buffer_options(a:buffer_options))
   call s:set_buffer_defaults()
 endfunc
 
@@ -42,18 +42,16 @@ func! s:close_buffer()
   silent exec 'close'
 endfunc
 
-func! s:buffer_options()
+func! s:buffer_options(buffer_options)
   let l:default_buffer_options = {
   \  'name': substitute(g:extract_buffer_name, '{filename}', expand('%:t'), 'g')
   \ }
 
-  return extend(l:default_buffer_options, s:buffer_options)
+  return extend(l:default_buffer_options, a:buffer_options)
 endfunc
 
 func! s:clear_buffer()
-  if !g:extract_append
-    silent exec 'normal! ggVGd'
-  endif
+  silent exec 'normal! ggVGd'
 endfunc
 
 func! s:insert_selection(selection)

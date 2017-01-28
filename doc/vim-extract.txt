@@ -53,10 +53,11 @@ COMMANDS                                                 *vim-extract-commands*
 
                                                                         *:Extr*
 
-:[range]Extr {buffer-name} {position} or :[range]Extr {position} {buffer-name}
+:[range]Extr[!] {position} {buffer-name}
 
   In Visual mode - extract selection to a new buffer, in Normal mode - open
   the extract buffer.
+  If ! is given buffer will be cleared before selection insert.
   Without 'position' argument the extract buffer will be opened with the last
   or default position.
 
