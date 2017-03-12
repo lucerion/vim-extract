@@ -34,8 +34,9 @@ func! s:extract(selection, buffer_options)
 endfunc
 
 func! s:open_buffer(buffer_options)
-  call buffr#open_or_create_buffer(s:buffer_options(a:buffer_options))
-  call s:set_buffer_defaults()
+  let l:buffer_options = s:buffer_options(a:buffer_options)
+  call buffr#open_or_create_buffer(l:buffer_options)
+  call s:set_buffer_defaults(l:buffer_options)
 endfunc
 
 func! s:close_buffer()
@@ -69,11 +70,39 @@ func! s:delete_lines(start_line, end_line)
   exec a:start_line . ',' . a:end_line . ' delete'
 endfunc
 
-func! s:set_buffer_defaults()
+func! s:set_buffer_defaults(buffer_options)
   setlocal buftype=nofile
   setlocal bufhidden=hide
   setlocal nobuflisted
   setlocal noswapfile
+
+  let s:buffer_options = a:buffer_options
+  augroup ExtractLeaveWihoutSave
+    autocmd!
+    autocmd BufUnload * call s:save_state()
+    autocmd BufEnter * call s:load_state()
+  augroup END
+endfunc
+
+func! s:save_state()
+  if expand('<afile>') == s:buffer_options.name && !s:is_buffer_empty()
+    exec 'write /tmp/' . s:buffer_options.name
+  endif
+endfunc
+
+func! s:load_state()
+  let l:file = '/tmp/' . s:buffer_options.name
+  if expand('<afile>') == s:buffer_options.name && filereadable(l:file)
+    if !s:buffer_options.clear
+      call append(0, readfile(l:file))
+      silent exec 'normal! Gdd'
+    endif
+    exec '!rm ' . l:file
+  endif
+endfunc
+
+func! s:is_buffer_empty()
+  return line('$') == 1 && getline(1) == '' ? 1 : 0
 endfunc
 
 func! s:show_error(message)
