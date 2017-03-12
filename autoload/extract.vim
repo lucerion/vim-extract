@@ -22,10 +22,10 @@ func! s:extract(selection, buffer_options)
     call s:delete_lines(a:selection.start_line, a:selection.end_line)
   endif
   call s:open_buffer(a:buffer_options)
+  if a:buffer_options.clear
+    call s:clear_buffer()
+  end
   if a:selection.count
-    if a:buffer_options.clear
-      call s:clear_buffer()
-    end
     call s:insert_selection(l:selection)
     if g:extract_hidden
       call s:close_buffer()
