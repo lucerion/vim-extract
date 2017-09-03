@@ -2,13 +2,14 @@
 " Description:  Extract selection to a new buffer
 " Author:       Alexander Skachko <alexander.skachko@gmail.com>
 " Homepage:     https://github.com/lucerion/vim-extract
-" Version:      0.4.0 (2016-09-19)
+" Version:      1.0.0 (2017-09-03)
 " Licence:      BSD-3-Clause
 " ==============================================================
 
-if exists('g:loaded_extract') || &compatible || (v:version < 700)
+if exists('g:loaded_extract') || &compatible || v:version < 700
   finish
 endif
+let g:loaded_extract = 1
 
 if !exists('g:extract_buffer_name')
   let g:extract_buffer_name = '_{filename}'
@@ -50,5 +51,3 @@ endfunc
 
 comm! -nargs=* -range=0 -bang -complete=customlist,s:autocompletion Extr
   \ call s:extract(<line1>, <line2>, <count>, !empty('<bang>'), <f-args>)
-
-let g:loaded_extract = 1
