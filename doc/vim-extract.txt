@@ -3,7 +3,7 @@
 Author:            Alexander Skachko <alexander.skachko@gmail.com>
 Homepage:          https://github.com/lucerion/vim-extract
 Version:           1.0.0 (2017-09-03)
-Licence:           BSD-3-Clause (see LICENSE)
+Licence:           BSD-3-Clause (see vim-extract-license)
 
 ===============================================================================
 CONTENTS                                                          *vim-extract*
@@ -127,7 +127,7 @@ CHANGELOG                                               *vim-extract-changelog*
 ===============================================================================
 LICENSE                                                   *vim-extract-license*
 
-Copyright © 2015-2016, Alexander Skachko
+Copyright © 2015, Alexander Skachko
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
