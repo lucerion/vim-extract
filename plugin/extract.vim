@@ -19,7 +19,11 @@ if !exists('g:extract_hidden')
   let g:extract_hidden = 0
 endif
 
-let s:allowed_args = ['-top', '-bottom', '-left', '-right', '-tab']
+if !exists('g:extract_default_position')
+  let g:extract_default_position = 'top'
+endif
+
+let s:allowed_position_args = ['-top', '-bottom', '-left', '-right', '-tab']
 
 func! s:autocompletion(input, command_line, cursor_position) abort
   return filter(s:allowed_args, 'v:val =~ a:input')
@@ -33,17 +37,15 @@ func! s:extract(start_line, end_line, count, clear, ...) abort
     \ }
   let l:buffer_options = { 'clear': a:clear }
 
-  let l:name_args_filter = 'index(s:allowed_args, v:val) < 0'
-  let l:name_args = filter(copy(a:000), l:name_args_filter)
+  let l:name_args = filter(copy(a:000), 'index(s:allowed_position_args, v:val) < 0')
   if len(l:name_args)
     let l:buffer_options.name = join(l:name_args)
   endif
 
-  let l:position_args_filter = 'index(s:allowed_args, v:val) >= 0'
-  let l:position_args = filter(copy(a:000), l:position_args_filter)
+  let l:buffer_options.position = g:extract_default_position
+  let l:position_args = filter(copy(a:000), 'index(s:allowed_position_args, v:val) >= 0')
   if len(l:position_args)
-    let l:position_arg = get(l:position_args, -1)
-    let l:buffer_options.position = substitute(l:position_arg, '-', '', 'g')
+    let l:buffer_options.position = substitute(l:position_args[-1], '-', '', 'g')
   endif
 
   call extract#extract(l:selection, l:buffer_options)

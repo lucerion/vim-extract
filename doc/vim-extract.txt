@@ -67,26 +67,33 @@ COMMANDS                                                 *vim-extract-commands*
 ===============================================================================
 OPTIONS                                                   *vim-extract-options*
 
+                                                   *g:extract_default_position*
+
+Default extract buffer position.
+
+  Possible values: 'top', 'bottom', 'left', 'right', 'tab'
+  Default value: 'top'
+
                                                         *g:extract_buffer_name*
 
 Extract buffer name pattern. {filename} will be replaced with the
 current file name. This option will be used if :Extr command was called
 without 'name' argument.
 
-Default: '_{filename}'
+  Default value: '_{filename}'
 
                                                              *g:extract_append*
 
 Append selection to the end of the extract buffer (1) or clear the extract
 buffer before insertation (0).
 
-Default: 1
+  Default value: 1
 
                                                              *g:extract_hidden*
 
 Extract selection without opening the extract buffer.
 
-Default: 0
+  Default value: 0
 
 ===============================================================================
 CHANGELOG                                               *vim-extract-changelog*

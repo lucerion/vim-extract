@@ -10,8 +10,7 @@ func! extract#extract(selection, buffer_options) abort
   if exists('g:loaded_buffr')
     call s:extract(a:selection, a:buffer_options)
   else
-    call s:show_error('Please, install vim-buffr')
-    return
+    call s:show_error('Please, install vim-buffr') | return
   endif
 endfunc
 
