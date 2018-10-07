@@ -55,10 +55,10 @@ COMMANDS                                                 *vim-extract-commands*
 
 :[range]Extr[!] {position} {buffer-name}
 
-  In Visual mode - extract selection to a new buffer, in Normal mode - open
-  the extract buffer.
-  If ! is given buffer will be cleared before selection insert.
-  Without 'position' argument the extract buffer will be opened with the last
+  In the Visual mode - extracts selection to a new buffer, in the Normal
+  mode - opens an extract buffer.
+  If `!` is given buffer will be cleared before selection insert.
+  Without 'position' argument an extract buffer will be opened with the last
   or default position.
 
   Positions: -top, -bottom, -left, -right, -tab
@@ -76,16 +76,15 @@ Default extract buffer position.
 
                                                         *g:extract_buffer_name*
 
-Extract buffer name pattern. {filename} will be replaced with the
-current file name. This option will be used if :Extr command was called
-without 'name' argument.
+Extract buffer name pattern. {filename} string replaces with the current filename
+name. This option uses if :Extr command called without 'name' argument.
 
   Default value: '_{filename}'
 
                                                              *g:extract_append*
 
 Append selection to the end of the extract buffer (1) or clear the extract
-buffer before insertation (0).
+buffer before insert (0).
 
   Default value: 1
 
@@ -102,30 +101,30 @@ CHANGELOG                                               *vim-extract-changelog*
 
   Changes
     * option g:extract_name renamed to g:extract_buffer_name
-    * clear buffer before selection insert if command called with bang
-    * restore buffer content if buffer closed without save
+    * clear buffer before insert if command called with `!`
+    * restore buffer content if buffer closed without saving
 
 0.4.0 (2016-09-19)~
 
   Changes
-    * extract selection without opening the extract buffer option was added
+    * extract selection without opening a buffer option added
 
 0.3.0 (2016-03-27)~
 
   vim-buffr plugin version 0.3 required
 
   Changes
-    * position and buffer name arguments were added to command
-    * range for command was added
-    * buffr#open_or_create arguments were changed to dictionary
-    * command VExtract was renamed to Extr
-    * g:extract_position option was removed
+    * position and buffer name arguments added to the command
+    * a range for the command added
+    * buffr#open_or_create arguments changed to a dictionary
+    * VExtract command renamed to Extr
+    * g:extract_position option removed
 
 0.2.0 (2016-02-05)~
 
   Changes
-    * buffr#open function name was changed to buffr#open_or_create
-    * Extract command was renamed to VExtract (vim-rails plugin conflict)
+    * buffr#open function name changed to buffr#open_or_create
+    * Extract command renamed to VExtract (vim-rails plugin conflict)
 
 0.1.0 (2015-12-06)~
 
