@@ -53,40 +53,16 @@ COMMANDS                                                 *vim-extract-commands*
 
                                                                         *:Extr*
 
-:[range]Extr[!] {position} {buffer-name}
+:[range]Extr[!] {buffer-name}
 
   In the Visual mode - extracts selection to a new buffer, in the Normal
   mode - opens an extract buffer.
   If `!` is given buffer will be cleared before selection insert.
-  Without 'position' argument an extract buffer will be opened with the last
-  or default position.
-
-  Positions: -top, -bottom, -left, -right, -tab
-  Default position: -top
+  Window split modes (|leftabove|, |rightbelow|, |topleft|, |botright|,
+  |vsplit|, |tab|, etc) are available.
 
 ===============================================================================
 OPTIONS                                                   *vim-extract-options*
-
-                                                   *g:extract_default_position*
-
-Default extract buffer position.
-
-  Possible values: 'top', 'bottom', 'left', 'right', 'tab'
-  Default value: 'top'
-
-                                                        *g:extract_buffer_name*
-
-Extract buffer name pattern. {filename} string replaces with the current filename
-name. This option uses if :Extr command called without 'name' argument.
-
-  Default value: '_{filename}'
-
-                                                             *g:extract_append*
-
-Append selection to the end of the extract buffer (1) or clear the extract
-buffer before insert (0).
-
-  Default value: 1
 
                                                              *g:extract_hidden*
 

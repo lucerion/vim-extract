@@ -7,11 +7,11 @@
 " ==============================================================
 
 func! extract#extract(selection, buffer_options) abort
-  if exists('g:loaded_buffr')
-    call s:extract(a:selection, a:buffer_options)
-  else
+  if !exists('g:loaded_buffr')
     call s:show_error('Please, install vim-buffr') | return
   endif
+
+  call s:extract(a:selection, a:buffer_options)
 endfunc
 
 func! s:extract(selection, buffer_options) abort
@@ -37,21 +37,12 @@ func! s:extract(selection, buffer_options) abort
 endfunc
 
 func! s:open_buffer(buffer_options) abort
-  let l:buffer_options = s:buffer_options(a:buffer_options)
-  call buffr#open_or_create_buffer(l:buffer_options)
-  call s:set_buffer_defaults(l:buffer_options)
+  call buffr#open_or_create_buffer(a:buffer_options.name, a:buffer_options.mods)
+  call s:set_buffer_defaults(a:buffer_options)
 endfunc
 
 func! s:close_buffer() abort
   silent exec 'close'
-endfunc
-
-func! s:buffer_options(buffer_options) abort
-  let l:default_buffer_options = {
-  \  'name': substitute(g:extract_buffer_name, '{filename}', expand('%:t'), 'g')
-  \ }
-
-  return extend(l:default_buffer_options, a:buffer_options)
 endfunc
 
 func! s:clear_buffer() abort
@@ -67,6 +58,7 @@ func! s:insert_selection(selection) abort
     call append(l:last_line, a:selection)
     silent exec 'normal! G'
   endif
+
 endfunc
 
 func! s:delete_lines(start_line, end_line) abort
