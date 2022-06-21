@@ -2,7 +2,7 @@
 
 Author:            Alexander Skachko <alexander.skachko@gmail.com>
 Homepage:          https://github.com/lucerion/vim-extract
-Version:           1.0.0 (2017-09-03)
+Version:           1.1.0 (2022-06-21)
 Licence:           BSD-3-Clause (see vim-extract-license)
 
 ===============================================================================
@@ -73,9 +73,18 @@ Extract selection without opening the extract buffer.
 ===============================================================================
 CHANGELOG                                               *vim-extract-changelog*
 
+1.1.0 (2022-06-21)~
+
+  vim-buffr plugin version 2.0.0 required
+
+  Changes
+
+    * removed position option from command (use window split modes instead)
+
 1.0.0 (2017-09-03)~
 
   Changes
+
     * option g:extract_name renamed to g:extract_buffer_name
     * clear buffer before insert if command called with `!`
     * restore buffer content if buffer closed without saving
@@ -83,6 +92,7 @@ CHANGELOG                                               *vim-extract-changelog*
 0.4.0 (2016-09-19)~
 
   Changes
+
     * extract selection without opening a buffer option added
 
 0.3.0 (2016-03-27)~
@@ -90,6 +100,7 @@ CHANGELOG                                               *vim-extract-changelog*
   vim-buffr plugin version 0.3 required
 
   Changes
+
     * position and buffer name arguments added to the command
     * a range for the command added
     * buffr#open_or_create arguments changed to a dictionary
@@ -99,6 +110,7 @@ CHANGELOG                                               *vim-extract-changelog*
 0.2.0 (2016-02-05)~
 
   Changes
+
     * buffr#open function name changed to buffr#open_or_create
     * Extract command renamed to VExtract (vim-rails plugin conflict)
 
