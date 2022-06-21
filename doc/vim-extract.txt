@@ -2,7 +2,7 @@
 
 Author:            Alexander Skachko <alexander.skachko@gmail.com>
 Homepage:          https://github.com/lucerion/vim-extract
-Version:           1.0.0 (2017-09-03)
+Version:           1.1.0 (2022-06-21)
 Licence:           BSD-3-Clause (see vim-extract-license)
 
 ===============================================================================
@@ -72,6 +72,13 @@ Extract selection without opening the extract buffer.
 
 ===============================================================================
 CHANGELOG                                               *vim-extract-changelog*
+
+1.1.0 (2022-06-21)~
+
+  vim-buffr plugin version 2.0.0 required
+
+  Changes
+    * removed position option from command (use window split modes instead)
 
 1.0.0 (2017-09-03)~
 

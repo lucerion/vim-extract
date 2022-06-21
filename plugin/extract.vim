@@ -2,7 +2,7 @@
 " Description:  Extract selection to a new buffer
 " Author:       Alexander Skachko <alexander.skachko@gmail.com>
 " Homepage:     https://github.com/lucerion/vim-extract
-" Version:      1.0.0 (2017-09-03)
+" Version:      1.1.0 (2022-06-21)
 " Licence:      BSD-3-Clause
 " ==============================================================
 
