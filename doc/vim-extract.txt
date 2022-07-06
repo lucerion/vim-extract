@@ -20,6 +20,17 @@ INSTALL                                                   *vim-extract-install*
 This plugin depends on vim-buffr (https://github.com/lucerion/vim-buffr)
 plugin.
 
+Vim packages (Vim 8, Neovim)
+>
+    mkdir -p ~/.vim/pack/lucerion/start
+    cd ~/.vim/pack/lucerion/start
+    git clone https://github.com/lucerion/vim-extract
+<
+vim-plug                                 https://github.com/junegunn/vim-plug
+>
+    Plug 'lucerion/vim-extract'
+    Plug 'lucerion/vim-buffr'
+<
 Vundle                                https://github.com/VundleVim/Vundle.vim
 >
     Plugin 'lucerion/vim-extract'
@@ -31,15 +42,14 @@ Pathogen                                https://github.com/tpope/vim-pathogen
     git clone https://github.com/lucerion/vim-extract
     git clone https://github.com/lucerion/vim-buffr
 <
+dein.vim                                   https://github.com/Shougo/dein.vim
+>
+    call dein#add('lucerion/vim-extract')
+<
 NeoBundle                             https://github.com/Shougo/neobundle.vim
 >
     NeoBundle 'lucerion/vim-extract'
     NeoBundle 'lucerion/vim-buffr'
-<
-vim-plug                                 https://github.com/junegunn/vim-plug
->
-    Plug 'lucerion/vim-extract'
-    Plug 'lucerion/vim-buffr'
 <
 Manual
 >
